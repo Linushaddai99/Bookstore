@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 50px;
+}
+
+nav ul {
+  margin-right: auto;
+}
+
+.container {
+  max-width: 85%;
+  margin: 0 auto;
+}
