@@ -96,7 +96,7 @@ After you're finished please remove all the comments and instructions!
 
 >The top fetaures of the website is.
 
-- **Perform Math Calculations**
+- **Add and Delete a selected book**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -188,8 +188,7 @@ Example command:
 
 >
 
-- **Calculate Maths Functions**
-- **Basic Navigation in react**
+- **Display different Categories of books**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -237,10 +236,6 @@ I would like to thank... React Community, Microverse community for the immese he
   git clone  https://github.com/linushaddai99/Bookstore.git
   cd Bookstore
   ```
-
-- **[Can I Perform math calculations using it?]**
-
-  - [Yes]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
