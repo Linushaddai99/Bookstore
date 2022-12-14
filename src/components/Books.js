@@ -1,8 +1,9 @@
+import { useSelector } from 'react-redux';
 import BookList from './BookList';
 import FormInput from './FormInput';
 
 const Books = () => {
-  const books = [];
+  const books = useSelector((state) => state.books);
 
   return (
     <div className="container">

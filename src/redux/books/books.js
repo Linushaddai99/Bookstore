@@ -1,7 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid4 } from 'uuid';
 
-const initialState = [];
+const initialState = [
+  {
+    id: uuid4(),
+    title: 'The King Of Dragons',
+    author: 'John Doe',
+  },
+  {
+    id: uuid4(),
+    title: 'After Life Experienc',
+    author: 'Jane Doe',
+  },
+  {
+    id: uuid4(),
+    title: 'The Broken Girl',
+    author: 'John Doe',
+  },
+];
 
 const bookSlice = createSlice({
   name: 'books',
@@ -14,27 +30,19 @@ const bookSlice = createSlice({
           title: action.payload.title,
           author: action.payload.author,
         };
-        state.push(newBook);
-      } else {
-        return state;
+        // state.push(newBook);
+        return [...state, newBook];
       }
-      return '';
+      return state;
     },
     removeBook(state, action) {
       if (action.payload) {
-        state.filter((book) => {
-          if (book.id !== action.payload) {
-            return book;
-          }
-          return '';
-        });
-      } else {
-        return state;
+        return state.filter((book) => book.id !== action.payload);
       }
-      return '';
+      return state;
     },
   },
 });
 
-export const bookAction = bookSlice.actions;
+export const { addBook, removeBook } = bookSlice.actions;
 export default bookSlice.reducer;
