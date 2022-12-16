@@ -1,23 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid4 } from 'uuid';
+import { getBooks, createBook, deleteBook } from '../Api/AsyncThunck';
 
-const initialState = [
-  {
-    id: uuid4(),
-    title: 'The King Of Dragons',
-    author: 'John Doe',
-  },
-  {
-    id: uuid4(),
-    title: 'After Life Experienc',
-    author: 'Jane Doe',
-  },
-  {
-    id: uuid4(),
-    title: 'The Broken Girl',
-    author: 'John Doe',
-  },
-];
+const initialState = {
+  books: [],
+};
 
 const bookSlice = createSlice({
   name: 'books',
@@ -30,7 +17,7 @@ const bookSlice = createSlice({
           title: action.payload.title,
           author: action.payload.author,
         };
-        // state.push(newBook);
+
         return [...state, newBook];
       }
       return state;
@@ -41,6 +28,28 @@ const bookSlice = createSlice({
       }
       return state;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getBooks.fulfilled, (state, action) => {
+      const books = [];
+      Object.keys(action.payload).forEach((key) => {
+        books.push({ ...action.payload[key][0], id: key });
+      });
+
+      return {
+        ...state,
+        books: [...books],
+      };
+    });
+
+    builder.addCase(createBook.fulfilled, (state) => ({
+      ...state,
+    }));
+
+    builder.addCase(deleteBook.fulfilled, (state, action) => ({
+      ...state,
+      books: [...state.books.filter((book) => book.id !== action.payload)],
+    }));
   },
 });
 
