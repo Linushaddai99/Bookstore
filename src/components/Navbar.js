@@ -1,23 +1,31 @@
 import { Link } from 'react-router-dom';
 
-import React from 'react';
+import React, { useState } from 'react';
 
-const Navbar = () => (
-  <div className="container">
-    <nav>
-      <div>
-        <h2 className="logo">Bookstore CMS</h2>
-      </div>
-      <ul>
-        <li>
-          <Link to="/">Books</Link>
-        </li>
-        <li>
-          <Link to="/categories">Categories</Link>
-        </li>
-      </ul>
-    </nav>
-  </div>
-);
+const Navbar = () => {
+  const [active, setActive] = useState(false);
+  return (
+    <div className="header">
+      <nav className="container">
+        <div className="navigation">
+          <div>
+            <h2 className="logo">Bookstore CMS</h2>
+          </div>
+          <ul>
+            <li>
+              <Link to="/" className={active ? 'active' : ''} onClick={() => { setActive(true); }}>Books</Link>
+            </li>
+            <li>
+              <Link to="/categories">Categories</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="profile-icon">
+          <span className="material-symbols-outlined person-icon">person</span>
+        </div>
+      </nav>
+    </div>
+  );
+};
 
 export default Navbar;

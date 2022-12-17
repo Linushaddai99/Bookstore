@@ -104,7 +104,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> - [Live Demo Link](https://github.com/linushaddai99/Bookstore/public)
+> - [Live Demo Link](https://bookstore-n7yq.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
