@@ -6,7 +6,7 @@ import Categories from './components/Categories';
 
 function App() {
   return (
-    <div>
+    <div className="main-container">
       <Navbar />
       <Routes>
         <Route path="/" element={<Books />} />

@@ -18,6 +18,9 @@ const FormInput = () => {
     };
     await dispatch(createBook(newBook));
     dispatch(getBooks());
+
+    setTitle('');
+    setAuthor('');
   };
 
   const titleOnChange = (e) => {
@@ -29,15 +32,16 @@ const FormInput = () => {
   };
 
   return (
-    <div>
+    <div className="form">
       <form>
-        <h2>ADD NEW BOOK</h2>
+        <h2 className="form-title">ADD NEW BOOK</h2>
         <input
           type="text"
           name="title"
           onChange={titleOnChange}
           value={title}
           placeholder="Book Title"
+          className="title-input"
         />
         <input
           type="text"
@@ -45,8 +49,9 @@ const FormInput = () => {
           onChange={authorOnChange}
           value={author}
           placeholder="Book Author"
+          className="author-input"
         />
-        <button type="button" onClick={AddBook}>
+        <button type="button" className="form-btn" onClick={AddBook}>
           ADD BOOK
         </button>
       </form>
